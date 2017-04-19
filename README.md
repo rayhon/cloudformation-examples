@@ -216,16 +216,19 @@ And the policy file is below:
 ### Lambda Creation
 ```
 aws lambda create-function 
---function-name HelloWorld 
---role arn:aws:iam:::role/service-role/myLambdaRole 
---zip-file fileb:///Users/arungupta/workspaces/serverless/aws/hellocouchbase/hellocouchbase/target/hellocouchbase-1.0-SNAPSHOT.jar --handler org.sample.serverless.aws.couchbase.HelloCouchbaseLambda 
---description "Hello Couchbase Lambda" 
---runtime java8  
---region us-west-2 
+--function-name MicroserviceGetAll 
+--role arn:aws:iam::598307997273:role/microserviceRole 
+--handler org.sample.serverless.aws.couchbase.BucketGetAll 
+--zip-file fileb:///Users/arungupta/workspaces/serverless/aws/microservice/microservice-http-endpoint/target/microservice-http-endpoint-1.0-SNAPSHOT.jar 
+--description "Microservice HTTP Endpoint - Get All" 
+--runtime java8 
+--region us-west-1 
 --timeout 30 
 --memory-size 1024 
+--environment Variables={COUCHBASE_HOST=ec2-52-53-193-176.us-west-1.compute.amazonaws.com} 
 --publish
 ```
+  * You can use **--environment** to set the environment variables
   * **--publish** - request AWS Lambda to create the Lambda function and publish a version as an atomic operation. Otherwise multiple versions may be created and may be published at a later point.
   
 ### Test the lambda
