@@ -215,17 +215,17 @@ And the policy file is below:
 
 ### Lambda Creation
 ```
-aws lambda create-function 
---function-name MicroserviceGetAll 
---role arn:aws:iam::598307997273:role/microserviceRole 
---handler org.sample.serverless.aws.couchbase.BucketGetAll 
---zip-file fileb:///Users/arungupta/workspaces/serverless/aws/microservice/microservice-http-endpoint/target/microservice-http-endpoint-1.0-SNAPSHOT.jar 
---description "Microservice HTTP Endpoint - Get All" 
---runtime java8 
---region us-west-1 
---timeout 30 
---memory-size 1024 
---environment Variables={COUCHBASE_HOST=ec2-52-53-193-176.us-west-1.compute.amazonaws.com} 
+aws lambda create-function \
+--function-name HelloCouchbaseLambda \
+--role arn:aws:iam::598307997273:role/service-role/myLambdaRole \
+--handler org.sample.serverless.aws.couchbase.HelloCouchbaseLambda \
+--zip-file fileb:///Users/arungupta/workspaces/serverless/aws/hellocouchbase/hellocouchbase/target/hellocouchbase-1.0-SNAPSHOT.jar \
+--description "Java Hello Couchbase" \
+--runtime java8 \
+--region us-west-2 \
+--timeout 30 \
+--memory-size 1024 \
+--environment Variables={COUCHBASE_HOST=ec2-35-165-249-235.us-west-2.compute.amazonaws.com} \
 --publish
 ```
   * You can use **--environment** to set the environment variables
@@ -233,11 +233,18 @@ aws lambda create-function
   
 ### Test the lambda
 ```
-aws lambda invoke --function-name HelloCouchbaseLambda --region us-west-2 --payload '' hellocouchbase.out
+aws lambda invoke \
+--function-name HelloCouchbaseLambda \
+--region us-west-2 \
+hellocouchbase.out
 ```
 ### Lamda Update
 ```
-aws lambda update-function-code --function-name HelloCouchbaseLambda --zip-file fileb:///Users/arungupta/workspaces/serverless/aws/hellocouchbase/hellocouchbase/target/hellocouchbase-1.0-SNAPSHOT.jar --region us-west-2 --publish
+aws lambda update-function-code \
+--function-name HelloCouchbaseLambda \
+--zip-file fileb:///Users/arungupta/workspaces/serverless/aws/hellocouchbase/hellocouchbase/target/hellocouchbase-1.0-SNAPSHOT.jar \
+--region us-west-2 \
+--publish
 ```
 
 # Reference
