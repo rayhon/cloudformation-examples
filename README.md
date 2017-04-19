@@ -1,3 +1,10 @@
+# Infrastructure as Code
+Idea is to use code to establish infrastructure in the cloud. So, we can version it and reproduce the same infrastructure in ease for testing and high availability reasons (like build another infra on different data centers). For AWS, there are few ways you can achieve it. They are:
+
+  * AWS cli
+  * CloudFormation
+  * SAM (based on CloudFormation but for Serverless Architecture)
+
 # CloudFormation Syntax
 
 ### Parameter Definition
@@ -132,7 +139,7 @@ Lambda:
       SecurityGroupIds: !Ref LambdaSecurityGroup
       SubnetIds: !Ref Subnets
 ```
-# Deployment
+# AWS Cli
 ### IAM Role Creation
 
   * To change who can use a role, modify the role's trust policy.
