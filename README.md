@@ -249,6 +249,6 @@ aws lambda update-function-code \
 
 # Reference
 
-  * https://github.com/ryansb/rsb.io/blob/master/template.yaml
-  * https://github.com/arun-gupta/serverless/tree/master/aws/hellocouchbase
+  * https://github.com/ryansb/rsb.io/blob/master/template.yaml
+  * https://github.com/arun-gupta/serverless/tree/master/aws/hellocouchbase
   
