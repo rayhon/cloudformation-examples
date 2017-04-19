@@ -209,6 +209,7 @@ And the policy file is below:
 ```
 
   * The above policy define what the role can do.
+  * This generous policy allows any permissions over logs generated in CloudWatch for all resources. In addition it allows all Lambda and API Gateway permissions to all resources. In general, only required policy would be given to specific resources.
   
 
 
